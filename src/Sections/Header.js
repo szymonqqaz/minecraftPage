@@ -1,21 +1,26 @@
 import React from 'react';
-import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Img from 'gatsby-image/withIEPolyfill';
+import './headerStyle.css';
 
 const StyledImg = styled(Img)`
-  width: 50%;
+  height: 100%;
 `;
 
 const MainWrapper = styled.header`
-  width: 100%;
   height: 100vh;
+  width: 100%;
 `;
 
 const Header = ({ image }) => (
   <>
     <MainWrapper>
-      <StyledImg fluid={image.file.childImageSharp.fluid} />
+      <StyledImg
+        className="img"
+        fluid={image.file.childImageSharp.fluid}
+        alt="backgorund"
+      />
     </MainWrapper>
   </>
 );

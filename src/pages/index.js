@@ -7,7 +7,6 @@ import Header from '../Sections/Header';
 const IndexPage = ({ data }) => (
   <>
     <MainConfiguration>
-      <p>hello world</p>
       <Header image={data} />
     </MainConfiguration>
   </>
