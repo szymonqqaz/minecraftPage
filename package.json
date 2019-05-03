@@ -8,6 +8,7 @@
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.3.25",
     "gatsby-image": "^2.0.41",
+    "ftp": "^0.3.10",
     "gatsby-plugin-manifest": "^2.0.29",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.12",
@@ -53,6 +54,7 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "ftp-deploy": "node deploy.js",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {
