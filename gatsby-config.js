@@ -7,14 +7,6 @@ module.exports = {
     author: `Szymon Brud - szymonqqaz22@gmail.com`,
   },
   plugins: [
-    // {
-    //   resolve: 'gatsby-plugin-web-font-loader',
-    //   options: {
-    //     typekit: {
-    //       id: 'xsx3yey',
-    //     }
-    //   }
-    // },
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
@@ -23,6 +15,8 @@ module.exports = {
         src: path.join(__dirname, 'src'),
       },
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-plugin-styled-components',
       options: {
