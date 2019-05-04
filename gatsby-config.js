@@ -58,6 +58,18 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        // This type will contain remote schema Query type
+        typeName: 'CRAFT',
+        // This is field under which it's accessible
+        fieldName: 'craft',
+        // Url to query from
+        url:
+          'https://api-euwest.graphcms.com/v1/cjv9i8vnd09zi01etv6omqt89/master',
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

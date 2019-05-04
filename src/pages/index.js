@@ -3,10 +3,12 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import MainConfiguration from '../styles/MainConfiguration';
 import Header from '../Sections/Header';
+import MenuPhone from '../components/MenuPhone/MenuPhone';
 
 const IndexPage = ({ data }) => (
   <>
     <MainConfiguration>
+      <MenuPhone />
       <Header image={data} />
     </MainConfiguration>
   </>
