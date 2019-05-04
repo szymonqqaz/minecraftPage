@@ -1,75 +1,74 @@
 import React from 'react';
 import styled from 'styled-components';
-import { graphql, StaticQuery } from 'gatsby';
+import PropTypes from 'prop-types';
+import Icon from '../Icon/Icon';
+import discordText from '../../images/discordText.svg';
+import facebook from '../../images/facebook.svg';
 
 const MainWrapper = styled.div`
   width: 100%;
-  height: 60px;
-  background: ${({ theme }) => theme.white};
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  height: 100vh;
+  background: ${({ theme }) => theme.white};
+  z-index: 8000;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  transform: translateX(${({ isMenuOpen }) => (isMenuOpen ? '0' : '100')}%);
+  transition: transform 0.2s;
+`;
+
+const OneElement = styled.p`
+  font-size: ${({ theme }) => theme.size.m};
+  font-weight: ${({ theme }) => theme.weight.m};
+  margin: -10% 0;
+`;
+
+const Footer = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-const Hamburger = styled.button`
-  height: 5px;
-  width: 35px;
-  position: relative;
-  background: ${({ theme }) => theme.black};
-  border: none;
-  margin-right: 15px;
-
-  ::before,
-  ::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    display: block;
-    background: ${({ theme }) => theme.black};
-  }
-
-  ::before {
-    top: 13px;
-  }
-
-  ::after {
-    top: -13px;
-  }
+const StyledIcon = styled(Icon)`
+  height: auto;
+  width: 200px;
+  font-size: 0.1rem;
 `;
 
-const Text = styled.h1`
-  font-size: ${({ theme }) => theme.size.m};
-  color: ${({ theme }) => theme.green};
-  font-weight: ${({ theme }) => theme.weight.b};
-  margin-left: 15px;
+const StyledIcon2 = styled(Icon)`
+  height: auto;
+  width: 40px;
+  font-size: 0.1rem;
+  margin-right: 8px;
 `;
 
-const MenuPhone = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        craft {
-          stronaGlownas {
-            ipSerwera
-          }
-        }
-      }
-    `}
-    render={({ craft: { stronaGlownas } }) => (
-      <>
-        <MainWrapper>
-          <Text>{stronaGlownas[0].ipSerwera}</Text>
-          <Hamburger />
-        </MainWrapper>
-      </>
-    )}
-  />
+const MenuOption = ['Strona główna', 'Aktualności', 'Więcej o nas', 'Kontakt'];
+
+const MenuPhone = ({ isMenuOpen }) => (
+  <>
+    <MainWrapper isMenuOpen={isMenuOpen}>
+      {MenuOption.map(element => (
+        <OneElement key={element}>{element}</OneElement>
+      ))}
+      <Footer>
+        <StyledIcon src={discordText} />
+        <StyledIcon2 src={facebook} />
+      </Footer>
+    </MainWrapper>
+  </>
 );
+
+MenuPhone.propTypes = {
+  isMenuOpen: PropTypes.bool.isRequired,
+};
 
 export default MenuPhone;

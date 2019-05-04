@@ -64,6 +64,7 @@ const Button = styled.button`
   margin-top: 25vh;
   font-size: ${({ theme }) => theme.size.xs};
   font-weight: ${({ theme }) => theme.weight.m};
+  max-width: 280px;
   cursor: pointer;
 
   :hover {
