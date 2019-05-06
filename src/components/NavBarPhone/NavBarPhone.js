@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { graphql, StaticQuery } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import MenuPhone from '../MenuPhone/MenuPhone';
+import Hamburger from '../Hamburger/Hamburger';
 
 const MainWrapper = styled.nav`
   width: 100%;
@@ -14,33 +15,9 @@ const MainWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
 
-const Hamburger = styled.button`
-  height: 5px;
-  width: 35px;
-  position: relative;
-  background: ${({ theme }) => theme.black};
-  border: none;
-  margin-right: 15px;
-
-  ::before,
-  ::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    display: block;
-    background: ${({ theme }) => theme.black};
-  }
-
-  ::before {
-    top: 13px;
-  }
-
-  ::after {
-    top: -13px;
+  ${({ theme }) => theme.mq.desktopS} {
+    display: none;
   }
 `;
 

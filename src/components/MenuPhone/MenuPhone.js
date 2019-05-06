@@ -19,6 +19,10 @@ const MainWrapper = styled.div`
   flex-direction: column;
   transform: translateX(${({ isMenuOpen }) => (isMenuOpen ? '0' : '100')}%);
   transition: transform 0.2s;
+
+  ${({ theme }) => theme.mq.desktopS} {
+    display: none;
+  }
 `;
 
 const OneElement = styled.p`
@@ -42,6 +46,7 @@ const StyledIcon = styled(Icon)`
   height: auto;
   width: 200px;
   font-size: 0.1rem;
+  fill: #7289da !important;
 `;
 
 const StyledIcon2 = styled(Icon)`
