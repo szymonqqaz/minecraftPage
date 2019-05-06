@@ -7,11 +7,16 @@ export const theme = {
     s: '1.8rem',
     xs: '2rem',
     m: '2.4rem',
+    xm: '3rem',
     x: '3.6rem',
     xl: '4.8rem',
   },
   mq: {
-    minPhone: '@media(min-width: 360)',
+    minPhone: '@media(min-width: 360px)',
+    tablet: '@media(min-width: 768px)',
+    desktopS: '@media(min-width: 1150px)',
+    desktopB: '@media(min-width: 1500px)',
+    desktopBB: '@media(min-width: 1800px)',
   },
   weight: {
     r: '400',

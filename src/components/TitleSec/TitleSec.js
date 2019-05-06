@@ -7,6 +7,14 @@ const TitleSec = styled.span`
   z-index: 2;
   font-weight: 600;
 
+  ${({ theme }) => theme.mq.tablet} {
+    font-size: ${({ theme }) => theme.size.xm};
+  }
+
+  ${({ theme }) => theme.mq.desktopS} {
+    font-size: ${({ theme }) => theme.size.x};
+  }
+
   &::before {
     content: '';
     background: ${({ theme }) => theme.green};
@@ -17,6 +25,10 @@ const TitleSec = styled.span`
     left: 50%;
     top: -10%;
     z-index: -10;
+
+    ${({ theme }) => theme.mq.desktopS} {
+      width: ${({ first }) => (first ? '200' : '100')}%;
+    }
   }
 `;
 
