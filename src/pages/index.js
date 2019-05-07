@@ -8,6 +8,8 @@ import SocialFixed from '../components/SocialFixed/SocialFixed';
 import MenuDesktop from '../components/MenuDesktop/MenuDesktop';
 import Aktulanosci from '../Sections/Aktulanosci';
 import Landscape from '../components/Landscape/Landscape';
+import ONas from '../Sections/ONas';
+import Kontakt from '../Sections/Kontakt';
 
 const IndexPage = ({ data }) => (
   <>
@@ -18,6 +20,8 @@ const IndexPage = ({ data }) => (
       <MenuDesktop />
       <Header image={data} />
       <Aktulanosci />
+      <ONas />
+      <Kontakt />
     </MainConfiguration>
   </>
 );
