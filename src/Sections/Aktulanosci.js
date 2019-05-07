@@ -114,7 +114,7 @@ const StyledIcon = styled(Icon)`
     grid-area: 1/2;
     transform: scale(0.3);
     position: relative;
-    top: -40%;
+    top: -20%;
     left: 7%;
     width: 10vh;
     height: 10vh;
