@@ -6,14 +6,18 @@ import Header from '../Sections/Header';
 import NavBarPhone from '../components/NavBarPhone/NavBarPhone';
 import SocialFixed from '../components/SocialFixed/SocialFixed';
 import MenuDesktop from '../components/MenuDesktop/MenuDesktop';
+import Aktulanosci from '../Sections/Aktulanosci';
+import Landscape from '../components/Landscape/Landscape';
 
 const IndexPage = ({ data }) => (
   <>
     <MainConfiguration>
+      <Landscape>przkręć telefon</Landscape>
       <NavBarPhone />
       <SocialFixed />
       <MenuDesktop />
       <Header image={data} />
+      <Aktulanosci />
     </MainConfiguration>
   </>
 );
