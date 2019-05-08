@@ -56,7 +56,7 @@ const ONas = () => (
     `}
     render={({ craft: { oNases } }) => (
       <>
-        <MainWrapper>
+        <MainWrapper className="sec3">
           <TitleSec>O Nas</TitleSec>
           <FirstP>{oNases[0].oSerwerze}</FirstP>
           <FirstP>{oNases[0].oItemShopie}</FirstP>

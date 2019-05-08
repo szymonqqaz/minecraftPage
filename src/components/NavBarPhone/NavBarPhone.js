@@ -28,7 +28,8 @@ const Text = styled.h1`
   margin-left: 15px;
 `;
 
-const NavBarPhone = () => {
+// eslint-disable-next-line react/prop-types
+const NavBarPhone = ({ heightAllSecitons }) => {
   const [isMenuOpen, setMenuState] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -48,7 +49,11 @@ const NavBarPhone = () => {
       `}
       render={({ craft: { stronaGlownas } }) => (
         <>
-          <MenuPhone isMenuOpen={isMenuOpen} />
+          <MenuPhone
+            isMenuOpen={isMenuOpen}
+            heightAllSecitons={heightAllSecitons}
+            send={toggleMobileMenu}
+          />
           <MainWrapper>
             <Text>{stronaGlownas[0].ipSerwera}</Text>
             <Hamburger onClick={toggleMobileMenu} isMenuOpen={isMenuOpen} />

@@ -187,7 +187,7 @@ const Header = ({ image }) => (
     `}
     render={({ craft: { stronaGlownas } }) => (
       <>
-        <MainWrapper>
+        <MainWrapper className="sec1">
           <StyledImg
             className="img"
             fluid={image.file.childImageSharp.fluid}

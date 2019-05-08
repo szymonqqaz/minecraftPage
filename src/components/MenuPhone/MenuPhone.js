@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { scrollTo } from 'scroll-js';
 import Icon from '../Icon/Icon';
 import discordText from '../../images/discordText.svg';
 import facebook from '../../images/facebook.svg';
@@ -58,22 +59,49 @@ const StyledIcon2 = styled(Icon)`
 
 const MenuOption = ['Strona główna', 'Aktualności', 'Więcej o nas', 'Kontakt'];
 
-const MenuPhone = ({ isMenuOpen }) => (
-  <>
-    <MainWrapper isMenuOpen={isMenuOpen}>
-      {MenuOption.map(element => (
-        <OneElement key={element}>{element}</OneElement>
-      ))}
-      <Footer>
-        <StyledIcon src={discordText} />
-        <StyledIcon2 src={facebook} />
-      </Footer>
-    </MainWrapper>
-  </>
-);
+class MenuPhone extends Component {
+  scroll = nr => {
+    // eslint-disable-next-line react/prop-types
+    const { heightAllSecitons } = this.props;
+
+    this.func();
+    setTimeout(() => {
+      scrollTo(document.body, {
+        top: heightAllSecitons[nr] - 60,
+        easing: 'ease-in-out',
+      });
+    }, 200);
+  };
+
+  func = () => {
+    const { send } = this.props;
+    send();
+  };
+
+  render() {
+    const { isMenuOpen } = this.props;
+
+    return (
+      <>
+        <MainWrapper isMenuOpen={isMenuOpen}>
+          {MenuOption.map((element, i) => (
+            <OneElement key={element} onClick={() => this.scroll(i)}>
+              {element}
+            </OneElement>
+          ))}
+          <Footer>
+            <StyledIcon src={discordText} />
+            <StyledIcon2 src={facebook} />
+          </Footer>
+        </MainWrapper>
+      </>
+    );
+  }
+}
 
 MenuPhone.propTypes = {
   isMenuOpen: PropTypes.bool.isRequired,
+  send: PropTypes.func.isRequired,
 };
 
 export default MenuPhone;
