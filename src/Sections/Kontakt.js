@@ -152,7 +152,7 @@ const text = [
 
 const Kontakt = () => (
   <>
-    <MainWrapper>
+    <MainWrapper className="sec4">
       <WrapperTitleSec>
         <TitleSec>Kontakt</TitleSec>
       </WrapperTitleSec>

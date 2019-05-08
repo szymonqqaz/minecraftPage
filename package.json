@@ -26,6 +26,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-inlinesvg": "^0.8.4",
+    "scroll-js": "^2.2.1",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {

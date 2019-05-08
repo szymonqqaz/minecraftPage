@@ -149,7 +149,7 @@ const Aktualnosci = () => {
       `}
       render={({ craft: { aktualnoscis } }) => (
         <>
-          <MainWrapper>
+          <MainWrapper className="sec2">
             <TitleSec>Aktualności</TitleSec>
             <WrapperArticleGrid>
               <StyledIcon src={undraw_text} />
