@@ -5,6 +5,7 @@ import Icon from '../components/Icon/Icon';
 import discord_ico from '../images/discord_ico.svg';
 import facebookWhite from '../images/facebookWhite.svg';
 import undraw_message from '../images/undraw_message.svg';
+import { Settings } from '../settings/settings';
 
 const MainWrapper = styled.section`
   width: 100%;
@@ -17,6 +18,12 @@ const MainWrapper = styled.section`
   }
 
   ${({ theme }) => theme.mq.desktopS} {
+    width: 94%;
+    min-height: 60vh;
+    padding-bottom: 0;
+  }
+
+  ${({ theme }) => theme.mq.desktopB} {
     width: 94%;
     min-height: 40vh;
     padding-bottom: 0;
@@ -145,11 +152,6 @@ const WrapperTitleSec = styled.div`
   }
 `;
 
-const text = [
-  'Wbijajcie na naszego discorda oraz facebooka',
-  'A jeśli macie jakieś pytania bądź wątpliwości to piszcie na maila',
-];
-
 const Kontakt = () => (
   <>
     <MainWrapper className="sec4">
@@ -157,17 +159,24 @@ const Kontakt = () => (
         <TitleSec>Kontakt</TitleSec>
       </WrapperTitleSec>
       <WrapperGrid>
-        <P1>{text[0]}</P1>
+        <P1>{Settings.textInKontakt.toSocial}</P1>
         <IconMessage src={undraw_message} />
         <Socials>
-          <WrapperforDisc>
-            <StyledDiscIco src={discord_ico} />
-          </WrapperforDisc>
-          <WrapperforFaceobok>
-            <StyledDiscIco2 src={facebookWhite} />
-          </WrapperforFaceobok>
+          <a href="https://discord.gg/BKcyNqS" target="blank">
+            <WrapperforDisc>
+              <StyledDiscIco src={discord_ico} />
+            </WrapperforDisc>
+          </a>
+          <a
+            href="https://m.facebook.com/groups/103528039992054?ref=bookmarks"
+            target="blank"
+          >
+            <WrapperforFaceobok>
+              <StyledDiscIco2 src={facebookWhite} />
+            </WrapperforFaceobok>
+          </a>
         </Socials>
-        <P1>{text[1]}</P1>
+        <P1>{Settings.textInKontakt.toEmail}</P1>
         <PGmail>support@gmail.com</PGmail>
       </WrapperGrid>
     </MainWrapper>
