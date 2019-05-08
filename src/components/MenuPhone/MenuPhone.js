@@ -5,6 +5,7 @@ import { scrollTo } from 'scroll-js';
 import Icon from '../Icon/Icon';
 import discordText from '../../images/discordText.svg';
 import facebook from '../../images/facebook.svg';
+import getHeight from '../../function/getHeight';
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -61,13 +62,10 @@ const MenuOption = ['Strona główna', 'Aktualności', 'Więcej o nas', 'Kontakt
 
 class MenuPhone extends Component {
   scroll = nr => {
-    // eslint-disable-next-line react/prop-types
-    const { heightAllSecitons } = this.props;
-
     this.func();
     setTimeout(() => {
       scrollTo(document.body, {
-        top: heightAllSecitons[nr] - 60,
+        top: getHeight()[nr] - 60,
         easing: 'ease-in-out',
       });
     }, 200);

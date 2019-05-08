@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { scrollTo } from 'scroll-js';
 import Hamburger from '../Hamburger/Hamburger';
+import getHeight from '../../function/getHeight';
 
 const MainWrapper = styled.nav`
   position: fixed;
@@ -92,22 +94,33 @@ const OneElement = styled.p`
 
 const MenuOption = ['Start', 'Aktualności', 'O nas', 'Kontakt'];
 
-const MenuDesktop = () => (
-  <>
-    <MainWrapper>
-      <WrapperHamburger>
-        <Hamburger />
-      </WrapperHamburger>
-      <IpSerweraWrapper>
-        <P>IP</P>
-      </IpSerweraWrapper>
-      <WrapperForMenuE>
-        {MenuOption.map(element => (
-          <OneElement key={element + 'desktop'}>{element}</OneElement>
-        ))}
-      </WrapperForMenuE>
-    </MainWrapper>
-  </>
-);
+const MenuDesktop = () => {
+  function scroll(nr) {
+    scrollTo(document.body, {
+      top: getHeight()[nr],
+      easing: 'ease-in-out',
+    });
+  }
+
+  return (
+    <>
+      <MainWrapper>
+        <WrapperHamburger>
+          <Hamburger />
+        </WrapperHamburger>
+        <IpSerweraWrapper>
+          <P>IP</P>
+        </IpSerweraWrapper>
+        <WrapperForMenuE>
+          {MenuOption.map((element, i) => (
+            <OneElement key={element + 'desktop'} onClick={() => scroll(i)}>
+              {element}
+            </OneElement>
+          ))}
+        </WrapperForMenuE>
+      </MainWrapper>
+    </>
+  );
+};
 
 export default MenuDesktop;
