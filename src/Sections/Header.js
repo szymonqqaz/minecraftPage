@@ -4,11 +4,13 @@ import styled from 'styled-components';
 import Img from 'gatsby-image/withIEPolyfill';
 import './headerStyle.css';
 import { StaticQuery, graphql } from 'gatsby';
+import { scrollTo } from 'scroll-js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
+import getHeight from '../function/getHeight';
 import TitleSec from '../components/TitleSec/TitleSec';
 
 library.add(faArrowDown);
@@ -20,7 +22,7 @@ const StyledImg = styled(Img)`
     width: 100%;
     grid-column: 2/3;
     grid-row: 1/2;
-    z-index: 9999;
+    z-index: 80000;
   }
 `;
 
@@ -171,46 +173,55 @@ const SocialsText = styled.div`
   }
 `;
 
-const Header = ({ image }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        craft {
-          stronaGlownas {
-            nazwaSerwera
-            wiecej
-            socialMedia
-            rozwiniecieWiecej
+const Header = ({ image }) => {
+  function scroll() {
+    scrollTo(document.body, {
+      top: getHeight()[2] - 60,
+      easing: 'ease-in-out',
+    });
+  }
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          craft {
+            stronaGlownas {
+              nazwaSerwera
+              wiecej
+              socialMedia
+              rozwiniecieWiecej
+            }
           }
         }
-      }
-    `}
-    render={({ craft: { stronaGlownas } }) => (
-      <>
-        <MainWrapper className="sec1">
-          <StyledImg
-            className="img"
-            fluid={image.file.childImageSharp.fluid}
-            alt="backgorund"
-          />
-          <Wrapper>
-            <WrapperText>
-              <WrapperForTitle>
-                <TitleSec first>{stronaGlownas[0].nazwaSerwera}</TitleSec>
-              </WrapperForTitle>
-              <Text>{stronaGlownas[0].wiecej}</Text>
-              <TextDesktop>{stronaGlownas[0].rozwiniecieWiecej}</TextDesktop>
-              <SocialsText>{stronaGlownas[0].socialMedia}</SocialsText>
-            </WrapperText>
-            <Button>
-              o serwerze <Icon icon="arrow-down" />
-            </Button>
-          </Wrapper>
-        </MainWrapper>
-      </>
-    )}
-  />
-);
+      `}
+      render={({ craft: { stronaGlownas } }) => (
+        <>
+          <MainWrapper className="sec1">
+            <StyledImg
+              className="img"
+              fluid={image.file.childImageSharp.fluid}
+              alt="backgorund"
+            />
+            <Wrapper>
+              <WrapperText>
+                <WrapperForTitle>
+                  <TitleSec first>{stronaGlownas[0].nazwaSerwera}</TitleSec>
+                </WrapperForTitle>
+                <Text>{stronaGlownas[0].wiecej}</Text>
+                <TextDesktop>{stronaGlownas[0].rozwiniecieWiecej}</TextDesktop>
+                <SocialsText>{stronaGlownas[0].socialMedia}</SocialsText>
+              </WrapperText>
+              <Button onClick={() => scroll()}>
+                o serwerze <Icon icon="arrow-down" />
+              </Button>
+            </Wrapper>
+          </MainWrapper>
+        </>
+      )}
+    />
+  );
+};
 
 Header.propTypes = {
   image: PropTypes.element.isRequired,

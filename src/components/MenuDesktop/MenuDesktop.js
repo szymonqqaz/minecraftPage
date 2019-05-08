@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { scrollTo } from 'scroll-js';
 import Hamburger from '../Hamburger/Hamburger';
@@ -12,6 +12,7 @@ const MainWrapper = styled.nav`
   height: 100vh;
   background: ${({ theme }) => theme.white};
   display: none;
+  z-index: 99999;
 
   ${({ theme }) => theme.mq.desktopS} {
     display: block;
@@ -36,6 +37,22 @@ const IpSerweraWrapper = styled.div`
   justify-content: center;
   position: relative;
   text-align: center;
+
+  ::after {
+    content: 'nbwlm.com';
+    position: absolute;
+    width: 20vw;
+    height: 100%;
+    z-index: -1;
+    background: ${({ theme }) => theme.white};
+    left: 0;
+    transform: translateX(${({ posit }) => (posit ? '-20' : '0')}vw);
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${({ theme }) => theme.black};
+  }
 `;
 
 const P = styled.p`
@@ -95,6 +112,12 @@ const OneElement = styled.p`
 const MenuOption = ['Start', 'Aktualności', 'O nas', 'Kontakt'];
 
 const MenuDesktop = () => {
+  const [isIpOpen, setIpOpen] = useState(false);
+
+  const toggleIpOpen = () => {
+    setIpOpen(!isIpOpen);
+  };
+
   function scroll(nr) {
     scrollTo(document.body, {
       top: getHeight()[nr],
@@ -106,9 +129,9 @@ const MenuDesktop = () => {
     <>
       <MainWrapper>
         <WrapperHamburger>
-          <Hamburger />
+          <Hamburger onClick={toggleIpOpen} />
         </WrapperHamburger>
-        <IpSerweraWrapper>
+        <IpSerweraWrapper posit={isIpOpen}>
           <P>IP</P>
         </IpSerweraWrapper>
         <WrapperForMenuE>
