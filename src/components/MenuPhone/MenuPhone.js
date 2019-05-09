@@ -32,6 +32,7 @@ const OneElement = styled.p`
   font-size: ${({ theme }) => theme.size.m};
   font-weight: ${({ theme }) => theme.weight.m};
   margin: -10% 0;
+  color: black;
 `;
 
 const Footer = styled.div`
