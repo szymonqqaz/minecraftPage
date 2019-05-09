@@ -38,7 +38,10 @@ const SocialFixed = () => (
       <a href="https://discord.gg/BKcyNqS" target="blank">
         <StyledDiscIco src={discord_ico} />
       </a>
-      <a href="https://m.facebook.com/groups/103528039992054?ref=bookmarks">
+      <a
+        href="https://m.facebook.com/groups/103528039992054?ref=bookmarks"
+        target="blank"
+      >
         <StyledDiscIco2 src={facebookWhite} />
       </a>
     </MainWrapper>

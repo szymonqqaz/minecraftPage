@@ -6,7 +6,6 @@ import Icon from '../Icon/Icon';
 import discordText from '../../images/discordText.svg';
 import facebook from '../../images/facebook.svg';
 import getHeight from '../../function/getHeight';
-import { Settings } from '../../settings/settings';
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -60,6 +59,8 @@ const StyledIcon2 = styled(Icon)`
   margin-right: 8px;
 `;
 
+const menu = ['Start', 'Aktualności', 'O nas', 'Kontakt'];
+
 class MenuPhone extends Component {
   scroll = nr => {
     this.func();
@@ -82,7 +83,7 @@ class MenuPhone extends Component {
     return (
       <>
         <MainWrapper isMenuOpen={isMenuOpen}>
-          {Settings.menu.map((element, i) => (
+          {menu.map((element, i) => (
             <OneElement
               key={element + 'menuphone'}
               onClick={() => this.scroll(i)}
@@ -91,8 +92,15 @@ class MenuPhone extends Component {
             </OneElement>
           ))}
           <Footer>
-            <StyledIcon src={discordText} />
-            <StyledIcon2 src={facebook} />
+            <a href="https://discord.gg/BKcyNqS" target="blank">
+              <StyledIcon src={discordText} />
+            </a>
+            <a
+              href="https://m.facebook.com/groups/103528039992054?ref=bookmarks"
+              target="blank"
+            >
+              <StyledIcon2 src={facebook} />
+            </a>
           </Footer>
         </MainWrapper>
       </>
