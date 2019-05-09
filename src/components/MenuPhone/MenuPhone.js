@@ -6,6 +6,7 @@ import Icon from '../Icon/Icon';
 import discordText from '../../images/discordText.svg';
 import facebook from '../../images/facebook.svg';
 import getHeight from '../../function/getHeight';
+import { Settings } from '../../settings/settings';
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -32,6 +33,8 @@ const OneElement = styled.p`
   font-weight: ${({ theme }) => theme.weight.m};
   margin: -10% 0;
   color: black;
+  position: relative;
+  z-index: 999999;
 `;
 
 const Footer = styled.div`
@@ -59,8 +62,6 @@ const StyledIcon2 = styled(Icon)`
   margin-right: 8px;
 `;
 
-const menu = ['Start', 'Aktualności', 'O nas', 'Kontakt'];
-
 class MenuPhone extends Component {
   scroll = nr => {
     this.func();
@@ -83,7 +84,7 @@ class MenuPhone extends Component {
     return (
       <>
         <MainWrapper isMenuOpen={isMenuOpen}>
-          {menu.map((element, i) => (
+          {Settings.menu.map((element, i) => (
             <OneElement
               key={element + 'menuphone'}
               onClick={() => this.scroll(i)}
