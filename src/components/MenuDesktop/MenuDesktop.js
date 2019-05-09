@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { scrollTo } from 'scroll-js';
 import Hamburger from '../Hamburger/Hamburger';
 import getHeight from '../../function/getHeight';
+import { Settings } from '../../settings/settings';
 
 const MainWrapper = styled.nav`
   position: fixed;
@@ -109,8 +110,6 @@ const OneElement = styled.p`
   }
 `;
 
-const MenuOption = ['Start', 'Aktualności', 'O nas', 'Kontakt'];
-
 const MenuDesktop = () => {
   const [isIpOpen, setIpOpen] = useState(false);
 
@@ -135,7 +134,7 @@ const MenuDesktop = () => {
           <P>IP</P>
         </IpSerweraWrapper>
         <WrapperForMenuE>
-          {MenuOption.map((element, i) => (
+          {Settings.menu.map((element, i) => (
             <OneElement key={element + 'desktop'} onClick={() => scroll(i)}>
               {element}
             </OneElement>
