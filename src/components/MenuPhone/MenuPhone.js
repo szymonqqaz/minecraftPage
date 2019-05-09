@@ -6,6 +6,7 @@ import Icon from '../Icon/Icon';
 import discordText from '../../images/discordText.svg';
 import facebook from '../../images/facebook.svg';
 import getHeight from '../../function/getHeight';
+import { Settings } from '../../settings/settings';
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -58,8 +59,6 @@ const StyledIcon2 = styled(Icon)`
   margin-right: 8px;
 `;
 
-const MenuOption = ['Strona główna', 'Aktualności', 'Więcej o nas', 'Kontakt'];
-
 class MenuPhone extends Component {
   scroll = nr => {
     this.func();
@@ -82,8 +81,11 @@ class MenuPhone extends Component {
     return (
       <>
         <MainWrapper isMenuOpen={isMenuOpen}>
-          {MenuOption.map((element, i) => (
-            <OneElement key={element} onClick={() => this.scroll(i)}>
+          {Settings.menu.map((element, i) => (
+            <OneElement
+              key={element + 'menuphone'}
+              onClick={() => this.scroll(i)}
+            >
               {element}
             </OneElement>
           ))}
