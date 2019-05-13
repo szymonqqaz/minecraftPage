@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { graphql, StaticQuery } from 'gatsby';
 import TitleSec from '../components/TitleSec/TitleSec';
 import Icon from '../components/Icon/Icon';
 import discord_ico from '../images/discord_ico.svg';
 import facebookWhite from '../images/facebookWhite.svg';
 import undraw_message from '../images/undraw_message.svg';
-import { Settings } from '../settings/settings';
 
 const MainWrapper = styled.section`
   width: 100%;
@@ -153,34 +153,48 @@ const WrapperTitleSec = styled.div`
 `;
 
 const Kontakt = () => (
-  <>
-    <MainWrapper className="sec4">
-      <WrapperTitleSec>
-        <TitleSec>Kontakt</TitleSec>
-      </WrapperTitleSec>
-      <WrapperGrid>
-        <P1>{Settings.textInKontakt.toSocial}</P1>
-        <IconMessage src={undraw_message} />
-        <Socials>
-          <a href="https://discord.gg/BKcyNqS" target="blank">
-            <WrapperforDisc>
-              <StyledDiscIco src={discord_ico} />
-            </WrapperforDisc>
-          </a>
-          <a
-            href="https://m.facebook.com/groups/103528039992054?ref=bookmarks"
-            target="blank"
-          >
-            <WrapperforFaceobok>
-              <StyledDiscIco2 src={facebookWhite} />
-            </WrapperforFaceobok>
-          </a>
-        </Socials>
-        <P1>{Settings.textInKontakt.toEmail}</P1>
-        <PGmail>support@gmail.com</PGmail>
-      </WrapperGrid>
-    </MainWrapper>
-  </>
+  <StaticQuery
+    query={graphql`
+      query {
+        craft {
+          kontakts {
+            sociale
+            mail
+          }
+        }
+      }
+    `}
+    render={({ craft: { kontakts } }) => (
+      <>
+        <MainWrapper className="sec4">
+          <WrapperTitleSec>
+            <TitleSec>Kontakt</TitleSec>
+          </WrapperTitleSec>
+          <WrapperGrid>
+            <P1>{kontakts[0].sociale}</P1>
+            <IconMessage src={undraw_message} />
+            <Socials>
+              <a href="https://discord.gg/BKcyNqS" target="blank">
+                <WrapperforDisc>
+                  <StyledDiscIco src={discord_ico} />
+                </WrapperforDisc>
+              </a>
+              <a
+                href="https://m.facebook.com/groups/103528039992054?ref=bookmarks"
+                target="blank"
+              >
+                <WrapperforFaceobok>
+                  <StyledDiscIco2 src={facebookWhite} />
+                </WrapperforFaceobok>
+              </a>
+            </Socials>
+            <P1>{kontakts[0].mail}</P1>
+            <PGmail>support@gmail.com</PGmail>
+          </WrapperGrid>
+        </MainWrapper>
+      </>
+    )}
+  />
 );
 
 export default Kontakt;

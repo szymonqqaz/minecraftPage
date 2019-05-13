@@ -40,6 +40,10 @@ const ButtonA = styled.a`
   justify-content: center;
   border-radius: 5px;
   cursor: pointer;
+
+  :hover {
+    background: ${({ theme }) => theme.greenHover};
+  }
 `;
 
 const ONas = () => (
@@ -61,7 +65,7 @@ const ONas = () => (
           <FirstP>{oNases[0].oSerwerze}</FirstP>
           <FirstP>{oNases[0].oItemShopie}</FirstP>
           <WrapperButton>
-            <ButtonA>Item Shop</ButtonA>
+            <ButtonA href="#">Item Shop</ButtonA>
           </WrapperButton>
         </MainWrapper>
       </>

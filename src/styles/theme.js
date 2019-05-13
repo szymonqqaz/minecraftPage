@@ -2,6 +2,7 @@ export const theme = {
   white: '#fff',
   black: '#000',
   green: '#219653',
+  greenHover: '#186A3B',
   grey: '#F6F6F6',
   transWhite: 'rgba(255, 255, 255, 0.9)',
   size: {

@@ -38,6 +38,11 @@ const IpSerweraWrapper = styled.div`
   justify-content: center;
   position: relative;
   text-align: center;
+  cursor: pointer;
+
+  :hover {
+    background-color: ${({ theme }) => theme.greenHover};
+  }
 
   ::after {
     content: 'nbwlm.com';
@@ -130,7 +135,7 @@ const MenuDesktop = () => {
         <WrapperHamburger>
           <Hamburger onClick={toggleIpOpen} />
         </WrapperHamburger>
-        <IpSerweraWrapper posit={isIpOpen}>
+        <IpSerweraWrapper posit={isIpOpen} onClick={toggleIpOpen}>
           <P>IP</P>
         </IpSerweraWrapper>
         <WrapperForMenuE>

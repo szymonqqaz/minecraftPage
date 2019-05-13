@@ -8,8 +8,8 @@ import './style.css';
 
 const MainConfiguration = ({ children }) => (
   <>
-    <SEO />
     <GlobalStyle />
+    <SEO />
     <ThemeProvider theme={theme}>
       <>{children}</>
     </ThemeProvider>
