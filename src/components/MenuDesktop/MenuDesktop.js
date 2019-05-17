@@ -45,7 +45,7 @@ const IpSerweraWrapper = styled.div`
   }
 
   ::after {
-    content: 'nbwlm.com';
+    content: 'Nbwlm.csrv.pl';
     position: absolute;
     width: 20vw;
     height: 100%;
