@@ -189,7 +189,7 @@ const Kontakt = () => (
               </a>
             </Socials>
             <P1>{kontakts[0].mail}</P1>
-            <PGmail>support@gmail.com</PGmail>
+            <PGmail>serwernbwlm@gmail.com</PGmail>
           </WrapperGrid>
         </MainWrapper>
       </>
