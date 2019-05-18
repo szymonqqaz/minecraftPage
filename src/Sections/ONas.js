@@ -65,9 +65,7 @@ const ONas = () => (
           <FirstP>{oNases[0].oSerwerze}</FirstP>
           <FirstP>{oNases[0].oItemShopie}</FirstP>
           <WrapperButton>
-            <ButtonA href="https://craftserve.pl/s/639004/shop">
-              Item Shop
-            </ButtonA>
+            <ButtonA>Item Shop wkótce dostępny</ButtonA>
           </WrapperButton>
         </MainWrapper>
       </>
